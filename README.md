@@ -1,4 +1,4 @@
-# RC4A.js v0.1.2
+# RC4A.php v0.1.0
 [NodeJS/JavaScript](https://github.com/iLeonidze/RC4A.js) implementation of simple and powerfull string encryption/decryption with the password & UTF-8 support.
 You can encrypt string in the browser and decrypt it on the PHP-server. Or encrypt on the PHP-server and decrypt in browser.
 
@@ -15,7 +15,7 @@ $rc4a = new rc4a;
 ## Encryption
 ```php
 $text = "Lorem ipsum 123 ёюйяъэ !№;%:?*()";
-$password = "supёrP@$$w0rd";
+$password = "supёrP@SSw0rd";
 $secret = $rc4a->encrypt($text,$password);
 echo $secret; // Will output something like this: ]êòd»÷[c #hümZºí¤xì/S-ѲѩҴӷдӂp±⅁ÑD_»¼ú{
 ```
@@ -38,7 +38,7 @@ And that's it. You don't have to pass salt for the decryption.
 Do not forget about damaged data. Test your code like this:
 ```php
 $text = "Lorem ipsum 123 ёюйяъэ !№;%:?*()";
-$password = "supёrP@$$w0rd";
+$password = "supёrP@SSw0rd";
 $secret = substr($rc4a->encrypt($text,$password),4); // let's damage this encrypted content
 try{
   $decryptedText = $rc4a->decrypt($secret,$password); // here you will get an error
